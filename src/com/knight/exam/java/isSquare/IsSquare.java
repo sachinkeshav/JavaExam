@@ -13,14 +13,14 @@ public class IsSquare {
         System.out.println(isSquare(0));
     }
 
-    static int isSquare(int n) {
+    public static int isSquare(int n) {
 
         if (n < 0) return 0;
 
         float root = 1.0f;
 
         for (int i = 0; i < n; i++) {
-            root = (float) 0.5 * (root + n / root);
+            root = 0.5f * (root + (n / root));
         }
 
         if (root == (int) root) return 1;
