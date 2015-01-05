@@ -3,7 +3,7 @@ package com.knight.exam.java.fineArray;
 /**
  * Created by skushwaha on 1/5/15.
  */
-public class FileArray {
+public class FineArray {
 
     public static void main(String[] args) {
         System.out.println(isFineArray(new int[]{4, 7, 9, 6, 5}));

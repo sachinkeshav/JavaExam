@@ -19,6 +19,12 @@ public class CompleteArray {
         System.out.println(isComplete1(new int[]{4}));
         System.out.println(isComplete1(new int[]{3, 2, 1, 1, 5, 6}));
         System.out.println(isComplete1(new int[]{3, 7, 23, 13, 107, -99, 97, 81}));
+
+        System.out.println();
+        System.out.println(isComplete2(new int[]{-5, 6, 2, 3, 2, 4, 5, 11, 8, 7}));
+        System.out.println(isComplete2(new int[]{5, 7, 9, 13}));
+        System.out.println(isComplete2(new int[]{2, 2}));
+        System.out.println(isComplete2(new int[]{2, 6, 3, 4}));
     }
 
     static int isComplete(int[] a) {
@@ -60,7 +66,7 @@ public class CompleteArray {
             if (a[i] % 2 == 0)
                 evenFlag = true;
 
-            if (a[i] != 1 &&IsSquare.isSquare(a[i]) == 1)
+            if (a[i] != 1 && IsSquare.isSquare(a[i]) == 1)
                 squareFlag = true;
 
             for (int j = i + 1; j < a.length; j++) {
@@ -75,5 +81,41 @@ public class CompleteArray {
         }
 
         return 0;
+    }
+
+    static int isComplete2(int[] a) {
+        if (a.length == 0)
+            return 0;
+
+        int smallestEven = Integer.MAX_VALUE - 1;
+        int largestEven = Integer.MIN_VALUE;
+        boolean evenFlag = false;
+
+        for (int anA : a) {
+            if (anA % 2 == 0) {
+                evenFlag = true;
+                if (anA > largestEven)
+                    largestEven = anA;
+                if (anA < smallestEven)
+                    smallestEven = anA;
+            }
+        }
+
+        if ((evenFlag && smallestEven == largestEven) || !evenFlag)  return 0;
+
+        for (int e = smallestEven; e <= largestEven; e++) {
+            boolean flag = false;
+            for (int anA : a) {
+                if (anA == e) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag)
+                return 0;
+        }
+
+        return 1;
     }
 }
