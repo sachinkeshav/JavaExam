@@ -5,7 +5,7 @@ package com.knight.exam.java.filterArray;
  */
 public class FilterArray {
 
-    static int isFilter(int[] a) {
+    static int isFilter1(int[] a) {
         boolean cond1 = true;
         boolean cond2 = true;
 
@@ -33,5 +33,28 @@ public class FilterArray {
 
         if (cond1 && cond2) return 1;
         else return 0;
+    }
+
+    static int isFilter(int[] a) {
+        boolean cond9Flag = false;
+        boolean cond7Flag = false;
+        boolean cond11Flag = false;
+        boolean cond13Flag = false;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 9) {
+                cond9Flag = true;
+            } else if (a[i] == 11) {
+                cond11Flag = true;
+            } else if (a[i] == 7) {
+                cond7Flag = true;
+            } else if (a[i] == 13) {
+                cond13Flag = true;
+            }
+        }
+
+        if ((cond9Flag && cond11Flag) || (cond7Flag && !cond13Flag) || (!cond9Flag && !cond7Flag))
+            return 1;
+        return 0;
     }
 }

@@ -14,7 +14,6 @@ public class OneBalanced {
         System.out.println(isOneBalanced(new int[]{1, 1, 3, 4}));
         System.out.println(isOneBalanced(new int[]{3, 3, 3, 3, 3, 3}));
         System.out.println(isOneBalanced(new int[]{1, 1, 1, 1, 1, 1}));
-        System.out.println(isOneBalanced(new int[]{1, 1, 1, 2, 3, -18, 45, 1, 0, 1, 1, 1, 2, 3, -18, 45, 1}));
     }
 
     static int isOneBalanced(int[] a) {
