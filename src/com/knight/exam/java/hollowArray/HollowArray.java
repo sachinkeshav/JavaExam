@@ -16,7 +16,7 @@ public class HollowArray {
         System.out.println(isHollow(new int[]{0, 0, 0}));
     }
 
-    static int isHollow(int[] a) {
+    static int isHollow1(int[] a) {
         if (a.length < 3)
             return 0;
 
@@ -28,7 +28,7 @@ public class HollowArray {
         for (i = 0; i < a.length; i++) {
             if (a[i] != 0) {
                 precedingNonZeros++;
-                if (a[i + 1] == 0)
+                if (i < a.length - 1 && a[i + 1] == 0)
                     break;
             }
             if (i < a.length - 1 && a[i] == 0 && a[i + 1] != 0)
@@ -40,7 +40,7 @@ public class HollowArray {
         for (j = precedingNonZeros == 0 ? 0 : i + 1; j < a.length; j++) {
             if (a[j] == 0) {
                 zeros++;
-                if (j < a.length -1 && a[j + 1] != 0)
+                if (j < a.length - 1 && a[j + 1] != 0)
                     break;
             }
         }
@@ -57,6 +57,30 @@ public class HollowArray {
         }
 
         if (precedingNonZeros == trailingNonZeros && zeros >= 3) return 1;
+        return 0;
+    }
+
+    static int isHollow(int[] a) {
+        if (a.length < 3)
+            return 0;
+        int zeroCount = 0;
+
+        for (int i = 0, j = a.length - 1; i <= j; i++, j--) {
+            if ((a[i] == 0 && a[j] != 0) || (a[i] != 0 && a[j] == 0)) {
+                return 0;
+            }
+            if (i == j && a[i] == 0) {
+                zeroCount++;
+            } else {
+                if (a[i] == 0)
+                    zeroCount++;
+
+                if (a[j] == 0)
+                    zeroCount++;
+            }
+        }
+
+        if (zeroCount >= 3) return 1;
         return 0;
     }
 }
