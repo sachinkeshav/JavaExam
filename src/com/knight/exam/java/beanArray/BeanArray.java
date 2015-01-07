@@ -20,6 +20,20 @@ public class BeanArray {
         System.out.println(isBean1(new int[]{3, 6, 9, 5, 7, 13, 6, 17}));
         System.out.println(isBean1(new int[]{9, 6, 18}));
         System.out.println(isBean1(new int[]{4, 7, 16}));
+
+        System.out.println();
+        System.out.println(isBean2(new int[]{2, 10, 9, 3}));
+        System.out.println(isBean2(new int[]{2, 2, 3, 3, 3}));
+        System.out.println(isBean2(new int[]{1, 1, 1, 2, 1, 1}));
+        System.out.println(isBean2(new int[]{0, -1, 1}));
+        System.out.println(isBean2(new int[]{3, 4, 5, 7}));
+
+        System.out.println();
+        System.out.println(isBean3(new int[]{4, 9, 8}));
+        System.out.println(isBean3(new int[]{2, 2, 5, 11, 23}));
+        System.out.println(isBean3(new int[]{7, 7, 3, 6}));
+        System.out.println(isBean3(new int[]{0}));
+        System.out.println(isBean3(new int[]{3, 8, 4}));
     }
 
     static int isBeanArray(int[] a) {
@@ -65,5 +79,35 @@ public class BeanArray {
         if ((flag9 && flag13) || (flag7 && !flag16) || (!flag9 && !flag7))
             return 1;
         return 0;
+    }
+
+    static int isBean2(int[] a) {
+        for (int a1 : a) {
+            boolean flag = false;
+            for (int a2 : a) {
+                if (a2 == a1 - 1 || a2 == a1 + 1) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                return 0;
+        }
+        return 1;
+    }
+
+    static int isBean3(int[] a) {
+        for (int a1 : a) {
+            boolean flag = false;
+            for (int a2 : a) {
+                if (a2 == a1 * 2 || a2 == (a1 * 2) + 1 || a2 == a1 / 2) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                return 0;
+        }
+        return 1;
     }
 }

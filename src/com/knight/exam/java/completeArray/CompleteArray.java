@@ -28,19 +28,19 @@ public class CompleteArray {
     }
 
     static int isComplete(int[] a) {
-        int max = 0;
+        int maximumEven = Integer.MIN_VALUE;
 
         for (int anA : a) {
             if (anA < 0) {
                 return 0;
             }
 
-            if (anA % 2 == 0 && anA > max) {
-                max = anA;
+            if (anA % 2 == 0 && anA > maximumEven) {
+                maximumEven = anA;
             }
         }
 
-        for (int i = 1; i < max; i++) {
+        for (int i = 2; i < maximumEven; i++) {
             if (i % 2 == 0) {
                 boolean flag = false;
 

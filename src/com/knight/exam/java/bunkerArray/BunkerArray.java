@@ -29,7 +29,7 @@ public class BunkerArray {
             if (n % i == 0)
                 return 0;
         }
-        return n > 0 ? 1 : 0;
+        return n > 1 ? 1 : 0;
     }
 
     static int isBunker(int[] a) {
@@ -40,7 +40,7 @@ public class BunkerArray {
             if (anA == 1)
                 oneFlag = true;
 
-            if (anA != 1 && isPrime(anA) == 1)
+            if (isPrime(anA) == 1)
                 primeFlag = true;
         }
 

@@ -11,7 +11,7 @@ public class BunkerNumber {
         System.out.println(isBunker(8));
     }
 
-    static int isBunker(int n) {
+    static int isBunker1(int n) {
         if (n == 1) {
             return 1;
         }
@@ -27,6 +27,21 @@ public class BunkerNumber {
             }
         }
 
+        return 0;
+    }
+
+    static int isBunker(int n) {
+        int previousElement = 1;
+        int index = 0;
+        int element = 0;
+
+        while (element < n) {
+            element = previousElement + index;
+            previousElement = element;
+            index++;
+        }
+
+        if (element == n) return 1;
         return 0;
     }
 }
