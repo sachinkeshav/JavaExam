@@ -36,7 +36,7 @@ public class DaphneArray {
     }
 
     // this is better approach
-    static int isDaphne(int[] a) {
+    static int isDaphne2(int[] a) {
         int headCount = 0;
         int tailCount = 0;
         boolean oddFlag = false;
@@ -51,5 +51,19 @@ public class DaphneArray {
 
         if (oddFlag) return 1;
         else return 0;
+    }
+
+    // this is best
+    static int isDaphne(int[] a) {
+        boolean oddFlag = false;
+
+        for (int i = 0, j = a.length - 1; i <= j; i++, j--) {
+            if ((a[i] % 2 == 0 && a[j] % 2 != 0) || (a[i] % 2 != 0 && a[j] % 2 == 0))
+                return 0;
+            if (a[i] % 2 != 0 || a[j] % 2 != 0)
+                oddFlag = true;
+        }
+        if (oddFlag) return 1;
+        return 0;
     }
 }

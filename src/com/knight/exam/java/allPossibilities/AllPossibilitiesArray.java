@@ -14,7 +14,7 @@ public class AllPossibilitiesArray {
         System.out.println(isAllPossibilities(new int[]{}));
     }
 
-    static int isAllPossibilities(int[] a) {
+    static int isAllPossibilities1(int[] a) {
         if (a.length == 0)
             return 0;
 
@@ -29,6 +29,24 @@ public class AllPossibilitiesArray {
             flag = false;
             for (int j = 0; j < tempArray.length; j++) {
                 if (a[i] == tempArray[j]){
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                return 0;
+        }
+        return 1;
+    }
+
+    static int isAllPossibilities(int[] a) {
+        if (a.length <= 0)
+            return 0;
+
+        for (int i = 0; i < a.length; i++) {
+            boolean flag = false;
+            for (int anA : a) {
+                if (anA == i) {
                     flag = true;
                     break;
                 }
