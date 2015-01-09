@@ -37,4 +37,24 @@ public class SequentiallyBounded {
         }
         return 1;
     }
+
+    static int isSequentiallyBounded1(int[] a) {
+        if (a.length == 0)
+            return 1;
+        if (a.length == 1 && a[0] == 0)
+            return 0;
+
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1])
+                return 0;
+            int count = 0;
+            for (int j = 0; j < a.length; j++) {
+                if (a[i] == a[j])
+                    count++;
+            }
+            if (count >= a[i])
+                return 0;
+        }
+        return 1;
+    }
 }

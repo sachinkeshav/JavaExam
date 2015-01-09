@@ -18,6 +18,10 @@ public class ClusterCompression {
     }
 
     static int[] clusterCompression(int[] a) {
+        if (a.length == 0) {
+            return new int[]{};
+        }
+
         int numClusters = 1;
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] != a[i + 1]) {
@@ -26,12 +30,19 @@ public class ClusterCompression {
         }
 
         int[] result = new int[numClusters];
-        int clusterIndex = -1;
+
+        if (numClusters == 1) {
+            result[0] = a[0];
+            return result;
+        }
+
+        int clusterIndex = 0;
+
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] != a[i + 1]) {
-                clusterIndex++;
                 result[clusterIndex] = a[i];
                 result[clusterIndex + 1] = a[i + 1];
+                clusterIndex++;
             }
         }
 

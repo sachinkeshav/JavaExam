@@ -14,7 +14,7 @@ public class StackedNumber {
         System.out.println(isStacked(7));
     }
 
-    static int isStacked(int n) {
+    static int isStacked1(int n) {
         int index = 1;
         int sum = 1;
         while (true) {
@@ -27,5 +27,16 @@ public class StackedNumber {
             index++;
             sum += index;
         }
+    }
+
+    static int isStacked(int n) {
+        int number = 1;
+        int sum = 0;
+        while (sum < n) {
+            sum += number;
+            number++;
+        }
+        if (sum == n) return 1;
+        return 0;
     }
 }

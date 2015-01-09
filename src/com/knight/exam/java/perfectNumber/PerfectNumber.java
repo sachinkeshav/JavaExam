@@ -5,7 +5,7 @@ package com.knight.exam.java.perfectNumber;
  */
 public class PerfectNumber {
 
-    static int henry(int i, int j) {
+    static int henry1(int i, int j) {
         int count = 0;
         int result = 0;
         int largest = i > j ? i : j;
@@ -35,5 +35,38 @@ public class PerfectNumber {
         }
 
         return result;
+    }
+
+    static int henry(int i, int j) {
+        int count = 0;
+        int result = 0;
+        int largest = i > j ? i : j;
+        int number = 1;
+
+        while (true) {
+            int sum = 0;
+            int factorNumber = 1;
+
+            while (factorNumber < number) {
+                if (number % factorNumber == 0) {
+                    sum += factorNumber;
+                }
+                factorNumber++;
+            }
+            if (number == sum) {
+                count++;
+                if (count == i) {
+                    result += sum;
+                }
+
+                if (count == j) {
+                    result += sum;
+                }
+            }
+            if (count == largest)
+                return result;
+
+            number++;
+        }
     }
 }

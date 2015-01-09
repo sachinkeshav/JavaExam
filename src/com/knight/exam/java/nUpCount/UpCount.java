@@ -20,4 +20,24 @@ public class UpCount {
 
         return counter;
     }
+
+    public static void main(String[] args) {
+        System.out.println(nUpCount1(new int[]{2, 3, 1, -6, 8, -3, -1, 2}, 5));
+        System.out.println(nUpCount1(new int[]{6, 3, 1}, 6));
+    }
+
+    static int nUpCount1(int[] a, int n) {
+        int prvPartialSum = 0;
+        int count = 0;
+
+        for (int anA : a) {
+            int sum = prvPartialSum + anA;
+
+            if (prvPartialSum <= n && sum > n)
+                count++;
+
+            prvPartialSum = sum;
+        }
+        return count;
+    }
 }

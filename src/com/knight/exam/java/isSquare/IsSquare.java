@@ -13,7 +13,7 @@ public class IsSquare {
         System.out.println(isSquare(0));
     }
 
-    public static int isSquare(int n) {
+    public static int isSquare1(int n) {
 
         if (n < 0) return 0;
 
@@ -25,5 +25,23 @@ public class IsSquare {
 
         if (root == (int) root) return 1;
         else return 0;
+    }
+
+    public static int isSquare(int n) {
+        if (n < 0)
+            return 0;
+
+        int square = 0;
+        int number = 1;
+
+        while (square < n) {
+            square = number * number;
+            number++;
+        }
+
+        if (square == n)
+            return 1;
+
+        return 0;
     }
 }

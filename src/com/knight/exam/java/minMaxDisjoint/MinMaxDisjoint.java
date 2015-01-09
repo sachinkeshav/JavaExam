@@ -18,18 +18,18 @@ public class MinMaxDisjoint {
 
     public static int isMinMaxDisjoint(int[] a) {
 
-        if (a.length <= 0) return 0;
+        if (a.length <= 2) return 0;
 
         int minValue = Integer.MAX_VALUE;
         int maxValue = Integer.MIN_VALUE;
 
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] < minValue) {
-                minValue = a[i];
+        for (int anA : a) {
+            if (anA < minValue) {
+                minValue = anA;
             }
 
-            if (a[i] > maxValue) {
-                maxValue = a[i];
+            if (anA > maxValue) {
+                maxValue = anA;
             }
         }
 

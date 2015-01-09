@@ -5,7 +5,7 @@ package com.knight.exam.java.porcupineNumber;
  */
 public class PorcupineNumber {
 
-    static int findPorcupineNumber(int n) {
+    static int findPorcupineNumber1(int n) {
         for (int i = n + 1; n < Integer.MAX_VALUE; i++) {
             if (isPrime(i)) {
                 int rem1 = i % 10;
@@ -33,6 +33,32 @@ public class PorcupineNumber {
             if (n % i == 0)
                 return false;
         }
-        return true;
+        return n > 1;
+    }
+
+    static int findPorcupineNumber(int n) {
+        int porcupine = n + 1;
+
+        while (true) {
+            if (isPrime(porcupine)) {
+                int digit = porcupine % 10;
+                if (digit == 9) {
+                    int nextPrime = porcupine + 1;
+                    while (true) {
+                        if (isPrime(nextPrime)) {
+                            int nextDigit = nextPrime % 10;
+                            if (nextDigit == 9) {
+                                return porcupine;
+                            } else {
+                                porcupine = nextPrime;
+                                break;
+                            }
+                        }
+                        nextPrime++;
+                    }
+                }
+            }
+            porcupine++;
+        }
     }
 }

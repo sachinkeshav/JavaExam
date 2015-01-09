@@ -21,10 +21,10 @@ public class TrivalentArray {
             tempArray[i] = Integer.MIN_VALUE;
 
         int index = 0;
-        for (int j = 0; j < a.length; j++) {
+        for (int anA : a) {
             boolean flag = true;
             for (int k = 0; k < index; k++) {
-                if (tempArray[k] == a[j]) {
+                if (tempArray[k] == anA) {
                     flag = false;
                     break;
                 } else {
@@ -33,7 +33,7 @@ public class TrivalentArray {
             }
 
             if (flag) {
-                tempArray[index] = a[j];
+                tempArray[index] = anA;
                 index++;
             }
         }

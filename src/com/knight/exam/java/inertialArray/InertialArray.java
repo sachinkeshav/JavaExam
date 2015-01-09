@@ -36,7 +36,8 @@ public class InertialArray {
             oddGtEvenFlag = true;
 
         System.out.println("smallestOdd = " + smallestOdd);
-        System.out.println("largestEven = " + largestEven);;
+        System.out.println("largestEven = " + largestEven);
+        ;
 
         System.out.println("oddFlag = " + oddFlag);
         System.out.println("maxEvenFlag = " + maxEvenFlag);
@@ -48,7 +49,7 @@ public class InertialArray {
             return 0;
     }
 
-    static int isInertial(int[] a) {
+    static int isInertial1(int[] a) {
         int greatestEven1 = Integer.MIN_VALUE;
         int greatest = greatestEven1;
         int greatestEven2 = greatestEven1;
@@ -70,5 +71,29 @@ public class InertialArray {
         }
         if (greatest == greatestEven1 && smallestOdd > greatestEven2 && totalOdd > 0) return 1;
         else return 0;
+    }
+
+    static int isInertial(int[] a) {
+        boolean oddFlag = false;
+        int maxEven = Integer.MIN_VALUE;
+        int secondMaxEven = maxEven;
+        int minOdd = Integer.MAX_VALUE;
+
+        for (int anA : a) {
+            if (anA % 2 != 0) {
+                oddFlag = true;
+                if (anA < minOdd)
+                    minOdd = anA;
+            } else {
+                if (anA > maxEven) {
+                    secondMaxEven = maxEven;
+                    maxEven = anA;
+                } else if (anA > secondMaxEven && anA < maxEven) {
+                    secondMaxEven = anA;
+                }
+            }
+        }
+        if (oddFlag && minOdd > secondMaxEven && maxEven > minOdd) return 1;
+        return 0;
     }
 }
