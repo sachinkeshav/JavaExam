@@ -22,23 +22,14 @@ public class OneBalanced {
         boolean non1Start = false;
         boolean non1End = false;
         if (a.length == 0) return 1;
-        if (a[a.length - 1] == 0) return 0;
         for (int number : a) {
-            if (number == 0) {
-                if (total1s != totalNon1s) return 0;
-                total1s = 0;
-                totalNon1s = 0;
-                non1Start = false;
-                non1End = false;
+            if (number == 1) {
+                if (non1Start) non1End = true;
+                total1s++;
             } else {
-                if (number == 1) {
-                    if (non1Start) non1End = true;
-                    total1s++;
-                } else {
-                    if (non1End) return 0;
-                    non1Start = true;
-                    totalNon1s++;
-                }
+                if (non1End) return 0;
+                non1Start = true;
+                totalNon1s++;
             }
         }
         if (total1s != totalNon1s) return 0;

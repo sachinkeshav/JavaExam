@@ -33,6 +33,7 @@ public class SequencedArray {
 
                 if (a[j - 1] == i || a[j] == i) {
                     flag = true;
+                    break;
                 }
             }
             if (!flag)
