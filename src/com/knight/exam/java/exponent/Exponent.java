@@ -15,7 +15,7 @@ public class Exponent {
         System.out.println(getExponent(128, 4));
     }
 
-    static int getExponent(int n, int p) {
+    static int getExponent1(int n, int p) {
         if (p <= 1)
             return -1;
         int count = 0;
@@ -24,6 +24,23 @@ public class Exponent {
             if (num % p == 0)
                 count++;
             else break;
+        }
+        return count;
+    }
+
+    static int getExponent(int n, int p) {
+        if (p <= 1)
+            return -1;
+
+        int count = 0;
+        n = n > 0 ? n : -n;
+
+        while (n > 0) {
+            if (n % p == 0)
+                count++;
+            else break;
+
+            n /= p;
         }
         return count;
     }

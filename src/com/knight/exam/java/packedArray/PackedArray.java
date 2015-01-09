@@ -25,6 +25,7 @@ public class PackedArray {
     static int isPacked(int[] a) {
         int j = 0;
         for (int i = 0; i < a.length; i = j) {
+            int count = 0;
             if (a[i] <= 0)
                 return 0;
             for (j = i; j < i + a[i]; j++) {
@@ -32,16 +33,13 @@ public class PackedArray {
                     return 0;
                 }
             }
-        }
 
-        for (int i = 0; i < a.length; i++) {
-            int lastIndex = i;
-            for (int k = i; k < a.length; k++) {
-                if (a[lastIndex] == a[k]) {
-                    if (k - lastIndex > 1) return 0;
-                    lastIndex = k;
-                }
+            for (int anA : a) {
+                if (anA == a[i])
+                    count++;
             }
+            if (count > a[i])
+                return 0;
         }
 
         return 1;
