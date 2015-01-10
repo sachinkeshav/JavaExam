@@ -15,16 +15,14 @@ public class DaphneArray1 {
         boolean evenFlag = false;
         boolean oddFlag = false;
 
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] % 2 == 0) {
+        for (int anA : a) {
+            if (anA % 2 == 0) {
                 evenFlag = true;
             } else {
                 oddFlag = true;
             }
 
-            if (evenFlag && a[i] % 2 != 0)
-                return 0;
-            if (oddFlag && a[i] % 2 == 0)
+            if (evenFlag && oddFlag)
                 return 0;
         }
         return 1;

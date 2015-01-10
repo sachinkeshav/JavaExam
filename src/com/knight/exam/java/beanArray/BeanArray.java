@@ -46,7 +46,7 @@ public class BeanArray {
             }
         }
 
-        if ((sum == 0 && a1 != 0) || sum != a1) return 0;
+        if (/*(sum == 0 && a1 != 0) || */sum != a1) return 0;
         else return 1;
     }
 

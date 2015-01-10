@@ -34,6 +34,15 @@ public class DecodeArray {
             sum += digit;
         }
 
+//        for (int i = 1; i < a.length; i++) {
+//            int digit = (a[i] - a[i - 1]) > 0 ? (a[i] - a[i - 1]) : -(a[i] - a[i - 1]);
+//
+//            for (int j = i; j < a.length - 1; j++) {
+//                digit *= 10;
+//            }
+//            sum += digit;
+//        }
+
         if (a[0] < 0) return -sum;
         return sum;
     }

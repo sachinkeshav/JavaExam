@@ -39,6 +39,7 @@ public class CompleteArray {
                 maximumEven = anA;
             }
         }
+        if (maximumEven != 10) return 0;
 
         for (int i = 2; i < maximumEven; i++) {
             if (i % 2 == 0) {
@@ -101,7 +102,7 @@ public class CompleteArray {
             }
         }
 
-        if ((evenFlag && smallestEven == largestEven) || !evenFlag)  return 0;
+        if ((evenFlag && smallestEven == largestEven) || !evenFlag) return 0;
 
         for (int e = smallestEven; e <= largestEven; e++) {
             boolean flag = false;

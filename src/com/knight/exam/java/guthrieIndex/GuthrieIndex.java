@@ -17,4 +17,25 @@ public class GuthrieIndex {
 
         return guthrieIndex;
     }
+
+    public static void main(String[] args) {
+        System.out.println(isGuthrie(11));
+        System.out.println(isGuthrie(22));
+        System.out.println(isGuthrie(8));
+    }
+
+    static int isGuthrie(int n) {
+        int previousElement = 1;
+        int index = 0;
+        int element = 0;
+
+        while (element < n) {
+            element = previousElement + index;
+            previousElement = element;
+            index++;
+        }
+
+        if (element == n) return 1;
+        return 0;
+    }
 }

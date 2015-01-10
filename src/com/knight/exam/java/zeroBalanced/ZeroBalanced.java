@@ -17,7 +17,7 @@ public class ZeroBalanced {
 
     static int isZeroBalanced(int[] a) {
 
-        if (a.length == 0)
+        if (a.length <= 1)
             return 0;
 
         int sum = 0;

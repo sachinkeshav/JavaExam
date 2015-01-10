@@ -16,10 +16,24 @@ public class Eval {
         System.out.println(eval(10.0, new int[]{0, 1}));
     }
 
-    static double eval(double x, int[] a) {
+    static double eval0(double x, int[] a) {
         double sum = 0;
 
         for (int i = a.length - 1; i >= 0; i--) {
+            double product = 1;
+            for (int j = 0; j < i; j++) {
+                product *= x;
+            }
+            sum += a[i] * product;
+        }
+
+        return sum;
+    }
+
+    static double eval(double x, int[] a) {
+        double sum = 0;
+
+        for (int i = 0; i < a.length; i++) {
             double product = 1;
             for (int j = 0; j < i; j++) {
                 product *= x;

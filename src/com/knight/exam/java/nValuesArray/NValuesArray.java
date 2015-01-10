@@ -23,17 +23,17 @@ public class NValuesArray {
         int totalAdded = 0;
         boolean uniqueFlag;
 
-        for (int i = 0; i < a.length; i++) {
+        for (int anA : a) {
             uniqueFlag = false;
-            for (int j = 0; j < uniqueArray.length; j++) {
-                if (a[i] == uniqueArray[j]) {
+            for (int anUnique : uniqueArray) {
+                if (anA == anUnique) {
                     uniqueFlag = true;
                     break;
                 }
             }
             if (!uniqueFlag) {
                 if (totalAdded >= n) return 0;
-                uniqueArray[totalAdded] = a[i];
+                uniqueArray[totalAdded] = anA;
                 totalAdded++;
             }
         }
