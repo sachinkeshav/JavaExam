@@ -15,18 +15,12 @@ public class ZeroLimited {
     }
 
     static int isZeroLimited(int[] a) {
-        for (int x = 1; x < a.length; x += 3) { // x = 3 * n + 1 = 1, 4, 7, 10, ...
-
-            for (int i = 0; i < a.length; i++) {
-                if (i == x) {
-                    if (a[i] != 0)
-                        return 0;
-                    break;
-                }
-                if (a[i] == 0)
-                    return 0;
-                break;
-            }
+        for (int i=0, k=1; i < a.length; i++) {
+            if(i==k) {
+                if(a[i] != 0) return 0;
+                k += 3;
+            } else 
+                if(a[i] == 0) return 0;
         }
         return 1;
     }
